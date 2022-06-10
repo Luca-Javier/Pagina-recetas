@@ -1,0 +1,18 @@
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+	font-size: 16px;
+	font-family: sans-serif;
+}
+body {
+	margin: 0;
+}
+.hero-image-conteiner {
+}
+.hero-image {
+	background-image: url(../Imagenes/comida2.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-origin: 50% 50%;
+}
