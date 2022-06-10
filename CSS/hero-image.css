@@ -1,0 +1,33 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+body{
+    font-size: 16px;
+    font-family: sans-serif;
+    margin: 0;
+}
+img {
+	max-width: 100%;
+	height: auto;
+}
+.hero-image{
+    background-image: url(../Imagenes/comida2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    color: white;
+    background-attachment: fixed;
+}
+.hero-image-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 5rem;
+    color: rgb(185, 176, 176);
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 2vh 0vh 10vh 2vh inset rgb(163, 160, 160);
+}
