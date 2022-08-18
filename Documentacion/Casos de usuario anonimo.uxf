@@ -1,0 +1,19 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLActor</id><coordinates><x>250</x><y>134</y><w>80</w><h>110</h></coordinates><panel_attributes>Anónimo</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>420</x><y>84</y><w>120</w><h>40</h></coordinates><panel_attributes>Registrarse</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>420</x><y>134</y><w>120</w><h>40</h></coordinates><panel_attributes>Iniciar sesion</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>420</x><y>234</y><w>120</w><h>40</h></coordinates><panel_attributes>Visualizar recetas</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>94</y><w>160</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;60;140;10</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>134</y><w>160</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;140;20</additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>144</y><w>160</w><h>130</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;140;110</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>410</x><y>284</y><w>130</w><h>40</h></coordinates><panel_attributes>
+Busqueda de recetas
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>144</y><w>150</w><h>180</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;130;160</additional_attributes></element><element><id>UMLUseCase</id><coordinates><x>420</x><y>184</y><w>120</w><h>40</h></coordinates><panel_attributes>Navegar por
+secciones</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>144</y><w>160</w><h>80</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;140;60</additional_attributes></element><element><id>UMLActor</id><coordinates><x>630</x><y>134</y><w>60</w><h>110</h></coordinates><panel_attributes>Usuario</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>530</x><y>134</y><w>150</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;130;20</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>410</x><y>354</y><w>100</w><h>190</h></coordinates><panel_attributes>Secciones recetas
+--
+Desayuno
+carne
+pastas
+postres
+vegano
+ensaladas
+mariscos
+pizzas
+empandas
+sandwiches
+milanesas
+hamburguesa</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>144</y><w>150</w><h>230</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;130;210</additional_attributes></element><element><id>UMLGeneric</id><coordinates><x>410</x><y>564</y><w>100</w><h>100</h></coordinates><panel_attributes>Otras secciones
+--
+Inicio</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>280</x><y>144</y><w>150</w><h>440</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;130;420</additional_attributes></element></diagram>
