@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: antiquewhite;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      font-family: sans-serif;
+    }
+
+    main {
+      width: 60vw;
+      height: 100vh;
+      background-color: bisque;
+      margin: 0 auto;
+    }
+/* 
+    .firstArea {
+      width: 100%;
+      height: auto;
+      font-size: inherit;
+      font-family: inherit;
+      border: none;
+      resize: none;
+    }
+
+    .firstArea:focus-visible {
+      outline: none;
+    }
+ */
+    .textFake {
+      /* border: 1px solid black; */
+      width: calc(100% - 32px);
+      margin: 16px;
+      padding: .5rem;
+      min-height: 2rem;
+
+    }
+
+    .textFake:focus-visible {
+      outline: none;
+    }
+
+    .textFake:empty::before {
+      position: absolute;
+      content: "Escribe aquí...";
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+
+    <!-- <textarea name="firstText" class="firstArea"></textarea> -->
+    <div class="textFake" contenteditable=""></div>
+
+  </main>
+
+  <script>
+
+  </script>
+</body>
+
+</html>
