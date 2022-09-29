@@ -122,6 +122,7 @@ h6 {
 	background-color: var(--color-second);
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 .nav > * {
 	height: var(--header-child-height);
@@ -179,6 +180,33 @@ h6 {
 .menu-bg.isActive {
 	opacity: 1;
 	pointer-events: initial;
+}
+.user-lg{
+	display: none;
+}
+@media screen and (min-width: 1024px) {
+	.menu{
+		position: static;
+		transform: none;
+		flex-flow: row;
+		width: 100%;
+		margin: auto 0;
+		height: auto;
+		justify-content: flex-end;
+		
+	}
+	.menu a{
+		width: 10ex;
+		font-size: .7rem;
+		padding: 0;
+		margin: 0 .3rem;
+	}
+	.menu .user{
+		display: none;
+	}
+	.user-lg{
+		display: block;
+	}
 }
 /* -----------------------Search----------------------- */
 #search h3 {
