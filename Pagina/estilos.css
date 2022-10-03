@@ -30,6 +30,8 @@
 	--bg-opacity_light: var(--color-white_alpha);
 	/* Unicas */
 	--hero-image-pizza: url(assets/pizza_hero_image.jpg);
+	--receta-img: url(assets/unsplash_receta.png);
+	--font-elegante: "Bree Serif", var(--font);
 }
 /* ***************Reset*************** */
 html {
@@ -118,7 +120,7 @@ h6 {
 	z-index: 990;
 	height: var(--header-height);
 	width: 100%;
-	padding: 1rem;
+	padding: 0 1rem;
 	background-color: var(--color-second);
 	display: flex;
 	justify-content: space-between;
@@ -156,7 +158,7 @@ h6 {
 .menu a:hover {
 	opacity: 100%;
 	color: var(--color-white);
-	background-color: var(--color-second);
+	background-color: var(--color-first);
 }
 .user {
 	background-color: var(--color-second) !important;
@@ -181,30 +183,35 @@ h6 {
 	opacity: 1;
 	pointer-events: initial;
 }
-.user-lg{
+.user-lg {
 	display: none;
 }
 @media screen and (min-width: 1024px) {
-	.menu{
+	/* cuidado porque el padding del nav no me permite tener toda la seccion con el hover del a */
+	.menu {
 		position: static;
 		transform: none;
 		flex-flow: row;
 		width: 100%;
 		margin: auto 0;
-		height: auto;
+		height: 100%;
 		justify-content: flex-end;
-		
+		align-items: center;
 	}
-	.menu a{
-		width: 10ex;
-		font-size: .7rem;
+	.menu a {
+		width: auto;
+		font-size: 0.7rem;
 		padding: 0;
-		margin: 0 .3rem;
+		margin: 0 0.7rem;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		padding: 0;
 	}
-	.menu .user{
+	.menu .user {
 		display: none;
 	}
-	.user-lg{
+	.user-lg {
 		display: block;
 	}
 }
@@ -239,7 +246,96 @@ h6 {
 	height: 2rem;
 	font-size: 1rem;
 	padding-left: 4rem;
+	border-radius: 0 15px 15px 0;
 }
+/* -----------------------Receta----------------------- */
+.receta {
+	height: calc(100vh - var(--header-height));
+	background-image: var(--receta-img);
+	background-size: cover;
+	position: relative;
+	display: flex;
+	flex-flow: column;
+	justify-content: space-between;
+	padding-top: 1rem;
+}
+.receta-filter {
+	position: absolute;
+	top: 0;
+	left: 0;
+	/* background-color: var(--color-first_alpha); */
+	background-image: linear-gradient(rgba(194, 133, 98, 0.75) 10%, #fff0 30%);
+	height: 100%;
+	width: 100%;
+	pointer-events: none;
+}
+.receta h3 {
+	color: white;
+	font-family: var(--font-elegante);
+	z-index: 1;
+}
+.receta-btns {
+	display: flex;
+	justify-content: space-around;
+	height: 4rem;
+	align-items: center;
+	background-color: var(--color-second_alpha);
+}
+.receta-btns a {
+	text-decoration: none;
+	color: black;
+	width: calc(100% / 3);
+	height: 100%;
+	font-size: 1.5rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.receta-btns a:hover {
+	color: white;
+	background-color: var(--color-first_alpha);
+	font-weight: bold;
+}
+.descripcion {
+	position: absolute;
+	display: none;
+}
+.ingredientes {
+	position: absolute;
+	display: none;
+}
+/* https://www.foolishdeveloper.com/2022/01/5-star-rating-html-css.html#:~:text=1%201.%20HTML%20code%20of%20Star%20Rating%20I,2%202.%20CSS%20code%20of%205%20Star%20Rating */
+.rating {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+}
+.rating > input {
+	display: none;
+}
+.rating > label {
+	position: relative;
+	width: 1.1em;
+	font-size: 3rem;
+	color: #ffd700;
+	cursor: pointer;
+}
+.rating > label::before {
+	content: "\2605";
+	position: absolute;
+	opacity: 0;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+	opacity: 1 !important;
+}
+.rating > input:checked ~ label:before {
+	opacity: 1;
+}
+.rating:hover > input:checked ~ label:before {
+	opacity: 0.4;
+}
+/* -- Hasta acá  */
 /* ***************Utilidades*************** */
 .box-shadow-in {
 	box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
