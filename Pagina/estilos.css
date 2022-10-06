@@ -150,10 +150,12 @@ h6 {
 	text-decoration: none;
 	color: var(--color-black);
 	background-color: var(--color-second_alpha);
-	padding: 1rem;
 	width: 100%;
 	height: 100%;
-	font-size: 1.4rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 1rem;
 }
 .menu a:hover {
 	opacity: 100%;
@@ -184,7 +186,7 @@ h6 {
 	pointer-events: initial;
 }
 .user-lg {
-	display: none;
+	display: none !important;
 }
 @media screen and (min-width: 1024px) {
 	/* cuidado porque el padding del nav no me permite tener toda la seccion con el hover del a */
@@ -199,20 +201,19 @@ h6 {
 		align-items: center;
 	}
 	.menu a {
+		padding:0  .5rem;
 		width: auto;
-		font-size: 0.7rem;
-		padding: 0;
-		margin: 0 0.7rem;
+		font-size: .8rem;
 		height: 100%;
 		display: flex;
 		align-items: center;
-		padding: 0;
+	
 	}
 	.menu .user {
 		display: none;
 	}
 	.user-lg {
-		display: block;
+		display:flex !important;
 	}
 }
 /* -----------------------Search----------------------- */
@@ -278,6 +279,7 @@ h6 {
 	display: flex;
 	justify-content: space-around;
 	height: 4rem;
+	width: 100%;
 	align-items: center;
 	background-color: var(--color-second_alpha);
 }
@@ -296,14 +298,20 @@ h6 {
 	background-color: var(--color-first_alpha);
 	font-weight: bold;
 }
-.descripcion {
+#descripcion,#ingredientes {
 	position: absolute;
 	display: none;
+	height: calc(100% - var(--header-child-height));
+	width: 100%;
+	top: 0;
+	left: 0;
 }
-.ingredientes {
-	position: absolute;
-	display: none;
+#descripcion:target,#ingredientes:target{
+	display: flex;
+	flex-flow: column;
 }
+/* Ingredientes----- */
+
 /* https://www.foolishdeveloper.com/2022/01/5-star-rating-html-css.html#:~:text=1%201.%20HTML%20code%20of%20Star%20Rating%20I,2%202.%20CSS%20code%20of%205%20Star%20Rating */
 .rating {
 	display: flex;
@@ -336,6 +344,9 @@ h6 {
 	opacity: 0.4;
 }
 /* -- Hasta acá  */
+/* !Arreglar estoo */
+.rating{height:3.2rem;
+align-items: center;}
 /* ***************Utilidades*************** */
 .box-shadow-in {
 	box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
