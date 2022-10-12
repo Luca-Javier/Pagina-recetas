@@ -17,7 +17,6 @@ export default function burguerMenu(menu, menuBtn, menuBg) {
 		];
 
 	d.addEventListener("click", (e) => {
-		console.log(e.target);
 		if (e.target.matches(menuBtn) || e.target.matches(`${menuBtn} *`)) {
 			d.querySelector(menu).classList.toggle("isActive");
 			d.querySelector(menuBg).classList.toggle("isActive");

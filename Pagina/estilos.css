@@ -53,9 +53,9 @@ a {
 	color: var(--color-link);
 	/* transition: all 0.5s ease-out; */
 }
-a:hover {
+/* a:hover {
 	opacity: 75%;
-}
+} */
 p {
 	line-height: 1.6;
 }
@@ -160,7 +160,7 @@ h6 {
 .menu a:hover {
 	opacity: 100%;
 	color: var(--color-white);
-	background-color: var(--color-first);
+	background-color: var(--color-first_alpha);
 }
 .user {
 	background-color: var(--color-second) !important;
@@ -201,19 +201,18 @@ h6 {
 		align-items: center;
 	}
 	.menu a {
-		padding:0  .5rem;
+		padding: 0 0.5rem;
 		width: auto;
-		font-size: .8rem;
+		font-size: 0.8rem;
 		height: 100%;
 		display: flex;
 		align-items: center;
-	
 	}
 	.menu .user {
 		display: none;
 	}
 	.user-lg {
-		display:flex !important;
+		display: flex !important;
 	}
 }
 /* -----------------------Search----------------------- */
@@ -254,6 +253,7 @@ h6 {
 	height: calc(100vh - var(--header-height));
 	background-image: var(--receta-img);
 	background-size: cover;
+	background-position: 50%;
 	position: relative;
 	display: flex;
 	flex-flow: column;
@@ -264,7 +264,6 @@ h6 {
 	position: absolute;
 	top: 0;
 	left: 0;
-	/* background-color: var(--color-first_alpha); */
 	background-image: linear-gradient(rgba(194, 133, 98, 0.75) 10%, #fff0 30%);
 	height: 100%;
 	width: 100%;
@@ -275,18 +274,21 @@ h6 {
 	font-family: var(--font-elegante);
 	z-index: 1;
 }
+.receta h3.isActive {
+	visibility: hidden;
+}
 .receta-btns {
 	display: flex;
 	justify-content: space-around;
 	height: 4rem;
 	width: 100%;
 	align-items: center;
-	background-color: var(--color-second_alpha);
 }
 .receta-btns a {
+	background-color: var(--color-second_alpha);
+	color: var(--color-black);
 	text-decoration: none;
-	color: black;
-	width: calc(100% / 3);
+	width: 100%;
 	height: 100%;
 	font-size: 1.5rem;
 	display: flex;
@@ -298,18 +300,29 @@ h6 {
 	background-color: var(--color-first_alpha);
 	font-weight: bold;
 }
-#descripcion,#ingredientes {
+.receta-btns a.isActive {
+	color: white;
+	background-color: var(--color-first_alpha);
+	font-weight: bold;
+}
+#descripcion,
+#ingredientes {
 	position: absolute;
 	display: none;
-	height: calc(100% - var(--header-child-height));
+	height: calc(100% - var(--header-height));
 	width: 100%;
 	top: 0;
 	left: 0;
+	padding: 1rem;
+	/* background-color: var(--color-first_alpha); */
+	background-image: linear-gradient(var(--color-first_alpha) 100%, white 0%);
 }
-#descripcion:target,#ingredientes:target{
+#descripcion:target,
+#ingredientes:target {
 	display: flex;
-	flex-flow: column;
+	flex-direction: column;
 }
+
 /* Ingredientes----- */
 
 /* https://www.foolishdeveloper.com/2022/01/5-star-rating-html-css.html#:~:text=1%201.%20HTML%20code%20of%20Star%20Rating%20I,2%202.%20CSS%20code%20of%205%20Star%20Rating */
@@ -317,6 +330,7 @@ h6 {
 	display: flex;
 	flex-direction: row-reverse;
 	justify-content: center;
+	align-self: flex-end;
 }
 .rating > input {
 	display: none;
@@ -345,8 +359,10 @@ h6 {
 }
 /* -- Hasta acá  */
 /* !Arreglar estoo */
-.rating{height:3.2rem;
-align-items: center;}
+.rating {
+	height: 3.2rem;
+	align-items: center;
+}
 /* ***************Utilidades*************** */
 .box-shadow-in {
 	box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
