@@ -1,8 +1,6 @@
+const d = document;
 export default function burguerMenu(menu, menuBtn, menuBg) {
-	const d = document,
-		/* $menuBtn = d.querySelector(menuBtn),
-		$menu = d.querySelector(menu), */
-		SECCIONES = [
+	/* SECCIONES = [
 			"Desayuno",
 			"Carne",
 			"Pastas",
@@ -14,7 +12,7 @@ export default function burguerMenu(menu, menuBtn, menuBg) {
 			"Empanadas",
 			"Sandwiches",
 			"Milanesas",
-		];
+		]; */
 
 	d.addEventListener("click", (e) => {
 		if (e.target.matches(menuBtn) || e.target.matches(`${menuBtn} *`)) {
@@ -25,5 +23,16 @@ export default function burguerMenu(menu, menuBtn, menuBg) {
 			d.querySelector(menu).classList.remove("isActive");
 			d.querySelector(menuBg).classList.remove("isActive");
 		}
+	});
+}
+export function burguerLogin(btn, open) {
+	const $open = d.querySelector(open);
+
+	d.addEventListener("click", (e) => {
+		if ($open.classList.contains("isActive") && !e.target.matches(`${open} *`))
+			$open.classList.remove("isActive");
+
+		if (e.target.matches(btn) || e.target.matches(`${btn} *`))
+			$open.classList.add("isActive");
 	});
 }

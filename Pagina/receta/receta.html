@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TuCoCina</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/receta.css">
+</head>
+
+<body>
+
+  <div class="conteiner">
+
+    <section class="nav">
+
+      <h1><a class="page-title" href="#hero-image">TuCoCina</a></h1>
+
+      <article class="menu-btn none-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+          <path d="M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z" />
+        </svg>
+      </article>
+
+      <article class="menu-bg"></article>
+
+      <article class="menu">
+        <a class="user" href="#logearse" data-user>Logearse</a>
+        <a href="#search" class="seccion-link-1">Desayuno</a>
+        <a href="#search" class="seccion-link-2">Carne</a>
+        <a href="#search" class="seccion-link-3">Pastas</a>
+        <a href="#search" class="seccion-link-4">Postres</a>
+        <a href="#search" class="seccion-link-5">Vegano</a>
+        <a href="#search" class="seccion-link-6">Ensaladas</a>
+        <a href="#search" class="seccion-link-7">Mariscos</a>
+        <a href="#search" class="seccion-link-8">Pizzas</a>
+        <a href="#search" class="seccion-link-9">Empanadas</a>
+        <a href="#search" class="seccion-link-10">Sandwiches</a>
+        <a href="#search" class="seccion-link-11">Milanesas</a>
+        <a href="#logearse" class="user-lg" data-user>
+          svg
+        </a>
+      </article>
+
+      <article id="modal-login" class="modal">
+
+        <form id="logearse" class="modal-content">
+          <div class="modal-inputs">
+            <p class="modal-title"><b>Datos:</b></p>
+            <input type="text" placeholder="Usuario" name="usuario" required>
+            <input type="text" placeholder="Contraseña" name="contrasenia" required>
+          </div>
+          <div>
+            <p class="modal-change">Sí no tienes una cuenta registrate <a href="#registrarse">AQUÍ</a></p>
+            <div class="modal-btns">
+              <input type="submit" class="modal-btn" value="LOGEAR">
+              <button><a href="#close" class="modal-btn">CERRAR</a></button>
+            </div>
+          </div>
+        </form>
+
+        <form id="registrarse" class="modal-content">
+          <div class="modal-inputs">
+            <p class="modal-title"><b>Datos:</b></p>
+            <input type="text" placeholder="Alias" name="alias" required>
+            <input type="text" placeholder="Usuario" name="usuario" required>
+            <input type="text" placeholder="Contraseña" name="contrasenia" required>
+            <input type="text" placeholder="Correo" name="correo" required>
+          </div>
+          <div>
+
+            <p class="modal-change">Sí ya tienes una cuenta logeate <a href="#logearse">AQUÍ</a></p>
+            <div class="modal-btns">
+              <input type="submit" class="modal-btn" value="REGISTRAR">
+              <button><a href="#close" class="modal-btn">CERRAR</a></button>
+            </div>
+          </div>
+
+        </form>
+
+      </article>
+
+    </section>
+
+    <div class="section-margins max-width-content-medium"></div>
+
+  </div>
+
+  <script src="receta.js" type="module"></script>
+</body>
+
+</html>

@@ -1,19 +1,22 @@
 const d = document;
-export default function recetaButtonsInteraction(descripcionBtn, ingredientesBtn) {
+export default function recetaButtonsInteraction(descripcionBtn, ingredientesBtn, ocultar) {
 	d.addEventListener("click", (e) => {
-		let titulo = e.target.parentNode.parentNode.querySelector("h3");
+		const $descBtn = d.querySelector(descripcionBtn),
+			$ingBtn = d.querySelector(ingredientesBtn),
+			$titulo = d.querySelector(ocultar);
 
-		if (e.target.matches(descripcionBtn) || e.target.matches(ingredientesBtn)) {
-			e.target.classList.toggle("isActive");
-
-			titulo.classList.toggle("isActive");
-			console.log("ejecuto");
+		if (e.target.matches(descripcionBtn)) {
+			$descBtn.classList.toggle("isActive");
+			$ingBtn.classList.remove("isActive");
 		}
-		/* if (clicked) {
-				titulo.style.toggle("display:none;");
-			} else {
-				e.target.parentNode.parentNode.style.backgroundColor = "red";
-			} */
+		if (e.target.matches(ingredientesBtn)) {
+			$ingBtn.classList.toggle("isActive");
+			$descBtn.classList.remove("isActive");
+		}
+		if ($ingBtn.classList.contains("isActive") || $descBtn.classList.contains("isActive"))
+			$titulo.classList.add("hidden");
+		else $titulo.classList.remove("hidden");
+
 		console.log(e.target);
 		console.log(e.target.matches(descripcionBtn) || e.target.matches(ingredientesBtn));
 	});
