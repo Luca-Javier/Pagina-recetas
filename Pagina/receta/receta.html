@@ -19,7 +19,7 @@
 
     <section class="nav">
 
-      <h1><a class="page-title" href="#hero-image">TuCoCina</a></h1>
+      <h1><a class="page-title" href="../index.html">TuCoCina</a></h1>
 
       <article class="menu-btn none-lg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -87,9 +87,72 @@
 
     </section>
 
-    <div class="section-margins max-width-content-medium"></div>
+    <div class="section-margins max-width-content-medium txt-allg-left">
+
+      <section>
+        <article class="options options-receta">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/></svg>
+        </article>
+        <article class="main-img-conteiner" data-main-img></article>
+      </section>
+
+      <section>
+        <h1 data-title></h1>
+        <p data-descripcion></p>
+      </section>
+
+      <section>
+        <h3 class="title-h1">Ingredientes</h3>
+        <ul data-ingredientes-list>
+        </ul>
+      </section>
+
+      <section>
+        <h3 class="title-h1">Pasos</h3>
+        <p><b data-pasos-num>Paso 1</b></p> <!-- Puedo poner paso y el numero con JS -->
+        <p data-pasos-descripcion></p>
+        <div class="pasos-imagenes" data-pasos-img></div>
+      </section>
+
+      <section class="rating txt-allg-right">
+        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+      </section>
+
+      <section>
+        <h3 class="title-h1">Comentarios</h3>
+        <p class="comentario-mejor">Mejor comentario</p>
+
+        <article>
+          <div class="comentario-header">
+            <b data-comentario-nombre class="comentario-nombre">Valentina</b>
+            <div class="comentado-options options">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/></svg>
+            </div>
+          </div>
+          <div class="comentario-foto"></div>
+          <div class="comentario-comentado"></div>
+        </article>
+
+        <article class="comentar-input">
+          <input type="text" placeholder="Comentar">
+        </article>
+
+        <article>
+          <div class="comentario-nombre"></div>
+          <div class="comentado-options"></div> 
+          <div class="comentario-foto"></div>
+          <div class="comentario-comentado"></div>
+        </article>
+        
+      </section>
+    </div>
 
   </div>
+
 
   <script src="receta.js" type="module"></script>
 </body>

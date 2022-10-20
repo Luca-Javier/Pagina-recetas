@@ -293,6 +293,65 @@ h6 {
 		transform: translateX(0);
 	}
 }
+/* -----------------------Estrellitas----------------------- */
+/* https://www.foolishdeveloper.com/2022/01/5-star-rating-html-css.html#:~:text=1%201.%20HTML%20code%20of%20Star%20Rating%20I,2%202.%20CSS%20code%20of%205%20Star%20Rating */
+.rating {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: center;
+	align-self: flex-end;
+}
+.rating > input {
+	display: none;
+}
+.rating > label {
+	position: relative;
+	width: 1.1em;
+	font-size: 3rem;
+	color: #ffd700;
+	cursor: pointer;
+}
+.rating > label::before {
+	content: "\2605";
+	position: absolute;
+	opacity: 0;
+}
+.rating > label:hover:before,
+.rating > label:hover ~ label:before {
+	opacity: 1 !important;
+}
+.rating > input:checked ~ label:before {
+	opacity: 1;
+}
+.rating:hover > input:checked ~ label:before {
+	opacity: 0.4;
+}
+/* -- Hasta acá  */
+/* !Arreglar estoo */
+.rating {
+	height: 3.2rem;
+	justify-content: flex-start;
+	align-items: center;
+}
+/* -----------------------Options receta----------------------- */
+.options{
+	display: flex;
+	justify-content: flex-end;
+}
+.options > svg{
+	height: 2rem;
+	cursor: pointer;
+	width: 2rem;
+}
+/* -----------------------Mejor comentario----------------------- */
+.comentario-mejor{
+	color: var(--color-grey_dark);
+}
+.comentario-header{
+	display: flex;
+	justify-content: space-between;
+}
+
 /* *******************************Utilidades******************************* */
 .box-shadow-in {
 	box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
@@ -327,6 +386,11 @@ h6 {
 .m-0 {
 	margin: 0;
 }
+.txt-allg-left{
+	text-align: left;
+}
+.txt-allgn-right
+{text-align: right;}
 .title-lines {
 	border-top: medium solid var(--color-first);
 	border-bottom: medium solid var(--color-first);
