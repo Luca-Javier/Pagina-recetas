@@ -1,0 +1,3 @@
+de la tabla recetarios, tags, va a ser un varchar tipo array EJ: "milanesa-carne" y despues lo separo con Regex
+
+actualizar tabla calificaicon

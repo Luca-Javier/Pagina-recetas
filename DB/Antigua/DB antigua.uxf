@@ -1,0 +1,45 @@
+<diagram program="umletino" version="15.0.0"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>660</x><y>620</y><w>210</w><h>90</h></coordinates><panel_attributes>comentarios
+-
+id_comentario: int(16) PK
+id_usuario. int(16) FK
+fecha: timestamp(6)
+id_estado: int(16)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>200</y><w>210</w><h>120</h></coordinates><panel_attributes>usuarios
+--
+id_usuario: int(16) PK
+nombre: varchar(50)
+correo: varchar(50)
+cotraseña: varchar(50)
+fecha_registro: timestamp(6)
+id_estado: int(16)</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>210</x><y>610</y><w>210</w><h>60</h></coordinates><panel_attributes>estado
+--
+id_estado: int(16) PK
+estado: varchar(50)
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>170</x><y>350</y><w>210</w><h>120</h></coordinates><panel_attributes>descripcion_receta
+--
+id_descripcion: int(16) PK
+tipo: varchar(50)
+ingredientes: varchar(300)
+detalle: varchar(300)
+id_estado: int(16) FK
+id_receta: int(16) FK</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>420</x><y>210</y><w>210</w><h>90</h></coordinates><panel_attributes>calificacion_receta
+--
+id_calificacion: int(16) PK
+calificacion: int(16)
+id_receta int(16) FK
+id_estado: int(16)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>370</x><y>380</y><w>330</w><h>100</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;80;70;80;70;20;310;20</additional_attributes></element><element><id>Relation</id><coordinates><x>150</x><y>500</y><w>550</w><h>160</h></coordinates><panel_attributes></panel_attributes><additional_attributes>60;140;10;140;10;20;530;20</additional_attributes></element><element><id>Relation</id><coordinates><x>460</x><y>470</y><w>240</w><h>200</h></coordinates><panel_attributes></panel_attributes><additional_attributes>220;10;10;10;10;180;200;180</additional_attributes></element><element><id>Relation</id><coordinates><x>380</x><y>230</y><w>320</w><h>250</h></coordinates><panel_attributes></panel_attributes><additional_attributes>300;230;230;230;230;220;10;220;10;10;40;10</additional_attributes></element><element><id>Relation</id><coordinates><x>880</x><y>220</y><w>80</w><h>290</h></coordinates><panel_attributes></panel_attributes><additional_attributes>20;270;60;270;60;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>860</x><y>480</y><w>100</w><h>210</h></coordinates><panel_attributes></panel_attributes><additional_attributes>80;10;80;190;10;190</additional_attributes></element><element><id>UMLClass</id><coordinates><x>970</x><y>480</y><w>210</w><h>90</h></coordinates><panel_attributes>pasos
+--
+id_pasos int(16) PK (no hace falta)
+numero int(16)
+descripcion varchar(50)
+id_receta int(16) FK</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>890</x><y>490</y><w>100</w><h>40</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;80;20</additional_attributes></element><element><id>UMLClass</id><coordinates><x>680</x><y>370</y><w>220</w><h>160</h></coordinates><panel_attributes>recetarios
+--
+id_receta: int(16) PK
+nombre_receta: varchar(50)
+imagen: blob
+fecha_creacion: current timestamp(6)
+id_calificacion. int(16) FK
+id_comentario: int(16) FK
+id_usuario: int(16) FK
+id_pasos int(16) FK
+id_estado: int(16) FK</panel_attributes><additional_attributes></additional_attributes></element></diagram>
