@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-10-2022 a las 22:44:52
+-- Tiempo de generación: 29-10-2022 a las 06:24:24
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 7.4.29
 
@@ -30,9 +30,9 @@ USE `pagina_recetas`;
 --
 
 CREATE TABLE `calificacion_receta` (
-  `id_calificacion` int(16) NOT NULL,
-  `calificacion` int(16) DEFAULT NULL,
   `id_receta` int(16) DEFAULT NULL,
+  `calificacion` int(16) DEFAULT NULL,
+  `id_usuario` int(16) NOT NULL,
   `id_estado` int(16) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -46,8 +46,8 @@ CREATE TABLE `comentarios` (
   `comentario` varchar(255) NOT NULL,
   `fecha` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
   `id_usuario` int(16) NOT NULL,
-  `id_receta` int(16) DEFAULT NULL,
-  `id_estado` int(16) DEFAULT NULL
+  `id_receta` int(16) NOT NULL,
+  `id_estado` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -58,8 +58,16 @@ CREATE TABLE `comentarios` (
 
 CREATE TABLE `estado` (
   `id_estado` int(16) NOT NULL,
-  `estado` varchar(50) DEFAULT NULL
+  `estado` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `estado`
+--
+
+INSERT INTO `estado` (`id_estado`, `estado`) VALUES
+(1, 'existe'),
+(2, 'eliminado');
 
 -- --------------------------------------------------------
 
@@ -68,8 +76,8 @@ CREATE TABLE `estado` (
 --
 
 CREATE TABLE `ingredientes_por_receta` (
-  `id_receta` int(16) DEFAULT NULL,
-  `ingrediente` varchar(30) DEFAULT NULL
+  `id_receta` int(16) NOT NULL,
+  `ingrediente` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -79,9 +87,9 @@ CREATE TABLE `ingredientes_por_receta` (
 --
 
 CREATE TABLE `pasos_por_receta` (
-  `id_receta` int(16) DEFAULT NULL,
-  `numero` int(16) DEFAULT NULL,
-  `descripcion` varchar(30) DEFAULT NULL,
+  `id_receta` int(16) NOT NULL,
+  `numero` int(16) NOT NULL,
+  `descripcion` varchar(30) NOT NULL,
   `imagen` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -93,14 +101,14 @@ CREATE TABLE `pasos_por_receta` (
 
 CREATE TABLE `recetarios` (
   `id_receta` int(16) NOT NULL,
-  `nombre_receta` varchar(50) DEFAULT NULL,
-  `imagen` blob DEFAULT NULL,
+  `nombre_receta` varchar(50) NOT NULL,
+  `imagen` blob NOT NULL,
   `tags` varchar(50) DEFAULT NULL,
-  `descripcion` varchar(50) DEFAULT NULL,
-  `fecha_creacion` timestamp(6) NULL DEFAULT current_timestamp(6),
-  `id_calificacion` int(16) DEFAULT NULL,
-  `id_usuario` int(16) DEFAULT NULL,
-  `id_estado` int(16) DEFAULT NULL
+  `descripcion` varchar(50) NOT NULL,
+  `fecha_creacion` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
+  `id_calificacion` int(16) NOT NULL,
+  `id_usuario` int(16) NOT NULL,
+  `id_estado` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
@@ -111,11 +119,11 @@ CREATE TABLE `recetarios` (
 
 CREATE TABLE `usuarios` (
   `id_usuario` int(16) NOT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
-  `correo` varchar(50) DEFAULT NULL,
-  `constraseña` varchar(50) DEFAULT NULL,
+  `nombre` varchar(50) NOT NULL,
+  `correo` varchar(50) NOT NULL,
+  `constraseña` varchar(50) NOT NULL,
   `fecha_registro` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
-  `id_estado` int(16) DEFAULT NULL
+  `id_estado` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -126,9 +134,9 @@ CREATE TABLE `usuarios` (
 -- Indices de la tabla `calificacion_receta`
 --
 ALTER TABLE `calificacion_receta`
-  ADD PRIMARY KEY (`id_calificacion`),
   ADD KEY `fk_id_estado_calificacion` (`id_estado`),
-  ADD KEY `fk_id_receta_calificacion` (`id_receta`);
+  ADD KEY `fk_id_receta_calificacion` (`id_receta`),
+  ADD KEY `fk_id_usuarios_calificacion` (`id_usuario`);
 
 --
 -- Indices de la tabla `comentarios`
@@ -177,16 +185,10 @@ ALTER TABLE `usuarios`
 --
 
 --
--- AUTO_INCREMENT de la tabla `calificacion_receta`
---
-ALTER TABLE `calificacion_receta`
-  MODIFY `id_calificacion` int(16) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `estado`
 --
 ALTER TABLE `estado`
-  MODIFY `id_estado` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_estado` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `recetarios`
@@ -209,7 +211,8 @@ ALTER TABLE `usuarios`
 --
 ALTER TABLE `calificacion_receta`
   ADD CONSTRAINT `fk_id_estado_calificacion` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`),
-  ADD CONSTRAINT `fk_id_receta_calificacion` FOREIGN KEY (`id_receta`) REFERENCES `recetarios` (`id_receta`);
+  ADD CONSTRAINT `fk_id_receta_calificacion` FOREIGN KEY (`id_receta`) REFERENCES `recetarios` (`id_receta`),
+  ADD CONSTRAINT `fk_id_usuarios_calificacion` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
 -- Filtros para la tabla `comentarios`
@@ -235,7 +238,6 @@ ALTER TABLE `pasos_por_receta`
 -- Filtros para la tabla `recetarios`
 --
 ALTER TABLE `recetarios`
-  ADD CONSTRAINT `fk_id_calificacion_recetarios` FOREIGN KEY (`id_calificacion`) REFERENCES `calificacion_receta` (`id_calificacion`),
   ADD CONSTRAINT `fk_id_estado_recetarios` FOREIGN KEY (`id_estado`) REFERENCES `estado` (`id_estado`),
   ADD CONSTRAINT `fk_id_usuarios_recetarios` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 

@@ -13,3 +13,6 @@ CREATE PROCEDURE crearReceta(
 BEGIN
 
 END $$
+
+alter table calificacion_receta
+drop CONSTRAINT `fk_id_calificacion_recetarios`
