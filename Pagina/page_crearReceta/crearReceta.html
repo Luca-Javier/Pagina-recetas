@@ -18,7 +18,7 @@
 
     <section class="nav">
 
-      <h1><a class="page-title" href="../index.html">TuCoCina</a></h1>
+      <h1><a class="page-title" href="../page_index/index.html">TuCoCina</a></h1>
 
       <article class="menu-btn none-lg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -66,7 +66,6 @@
         <form id="registrarse" class="modal-content">
           <div class="modal-inputs">
             <p class="modal-title"><b>Datos:</b></p>
-            <input type="text" placeholder="Alias" name="alias" required>
             <input type="text" placeholder="Usuario" name="usuario" required>
             <input type="text" placeholder="Contraseña" name="contrasenia" required>
             <input type="text" placeholder="Correo" name="correo" required>
@@ -86,79 +85,97 @@
 
     </section>
 
-    <form class="section-margins max-width-content-medium">
+    <form class="section-margins max-width-content-medium" id="form-crear">
       <h2 class="title-h1">!CREA TU RECETA¡</h2>
 
-      <section class="image">
-
-        <p>Sube tu imagen</p>
-        <!-- <img src="../assets/image-regular.svg" alt=""> -->
+      <section class="image" data-img-upload>
+        <input type="file" hidden name="img" required>
+        <p data-img-txt>Sube tu imagen</p>
+        <img class="none" src="" alt="Imagen de receta" data-img-visualizar>
       </section>
 
       <section class="card">
         <input type="text" placeholder="Título" title="Carácteres de la a-z" required
-          pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="titulo">
+          pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü,.\s]+$" name="titulo" class="title-h1">
         <input type="text" placeholder="Descripción de la receta" title="Carácteres de la a-z y 0-9" required
-          pattern="^[0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="descripcion">
+          pattern="^[0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü,.\s]+$" name="descripcion">
       </section>
 
-      <section class="card">
+      <section class="card" id="ingrediente-conteiner">
         <h3>Ingredientes</h3>
+        <input type="number" hidden name="num-ingredientes" value="2">
         <article class="input-options">
           <img src="../assets/menu-bars.svg" alt="Arrastrable">
           <input type="text" placeholder="Ingrediente" title="Carácteres de la a-z , 0-9 y /|.()," required
-            pattern="^[(),/|.0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="ingrediente">
+            pattern="^[(),/|.0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="ingrediente-1">
           <img src="../assets/trash-solid.svg" alt="eliminar">
         </article>
         <article class="input-options">
           <img src="../assets/menu-bars.svg" alt="Arrastrable">
           <input type="text" placeholder="Ingrediente" title="Carácteres de la a-z , 0-9 y /|.()," required
-            pattern="^[(),/|.0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="ingrediente">
+            pattern="^[(),/|.0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="ingrediente-2">
           <img src="../assets/trash-solid.svg" alt="eliminar">
         </article>
-        <article class="card-add"><button>Agregar Ingrediente</button></article>
+        <article class="card-add add-ingrediente"><button type="button">Agregar Ingrediente</button></article>
 
       </section>
 
-      <section class="card">
+      <section class="card" id="pasos-conteiner">
         <h3>Pasos <small>(Opcional)</small></h3>
+        <input type="number" name="num-pasos" hidden value="0">
+        <!-- <input type="number" name="num-img-pasos" hidden value="0"> -->
 
         <div class="card-paso">
 
-          <article class="input-title">
+          <!-- <article class="input-title">
             <p><b>Paso 1</b></p>
 
             <div class="input-options">
               <img src="../assets/menu-bars.svg" alt="Arrastrable">
               <input type="text" placeholder="Paso" title="Carácteres de la a-z , 0-9 y /|.(),"
-                pattern="^[(),/|.0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="paso">
+                pattern="^[(),/|.0-9A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$" name="paso-1">
               <img src="../assets/trash-solid.svg" alt="eliminar">
             </div>
 
           </article>
 
-          <article class="image image-paso">
-            <p><img src="../assets/image-regular.svg" alt="Pon una imagen"></p>
-          </article>
+          <article class="image image-paso" data-img-upload>
+            <input type="file" hidden name="paso-1">
+            <p><img src="../assets/image-regular.svg" alt="Pon una imagen" data-img-txt></p>
+            <img class="none" src="" alt="Imagen del paso" data-img-visualizar>
+          </article> -->
 
         </div>
 
-        <article class="card-add"><button>Agregar Paso</button></article>
+        <article class="card-add add-paso"><button type="button">Agregar Paso</button></article>
 
       </section>
 
-      <article class="card-add last-element"><input type="submit" value="Crear"></article>
+      <article class="card-add last-element"><button type="submit">Crear</button></article>
     </form>
 
   </div>
 
   <script type="module">
     import burguerMenu, { burguerLogin } from "../JS/burguerMenu.js";
+    import registrarUsuario, { logearUsuario } from "../JS/registrar_logearUsuario.js"
+    import checkUserLoged from "../JS/checkUserLoged.js"
+    import subirImagenes from "../JS/buscarFotos.js";
+    import ingredientes from "./JS-local/ingredientes.js"
+    import pasos from "./JS-local/pasos.js"
+    import crearReceta from "./JS-local/crearReceta.js"
     const d = document;
 
     d.addEventListener("DOMContentLoaded", () => {
       burguerMenu(".menu", ".menu-btn", ".menu-bg");
       burguerLogin("[data-user]", "#modal-login");
+      registrarUsuario();
+      logearUsuario();
+      checkUserLoged();
+      subirImagenes();
+      ingredientes();
+      pasos();
+      crearReceta();
     });
   </script>
 </body>

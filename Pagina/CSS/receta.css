@@ -141,6 +141,18 @@ h6 {
 	background-color: var(--color-second) !important;
 	/* margin-bottom: 2rem; */
 }
+.user-loged {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.user-loged img {
+	height: 2rem;
+	width: 2rem;
+}
+.user-loged p {
+	margin-left: 0.5rem;
+}
 .menu-bg {
 	opacity: 0;
 	top: 0;
@@ -334,20 +346,20 @@ h6 {
 	align-items: center;
 }
 /* -----------------------Options receta----------------------- */
-.options{
+.options {
 	display: flex;
 	justify-content: flex-end;
 }
-.options > svg{
+.options > svg {
 	height: 2rem;
 	cursor: pointer;
 	width: 2rem;
 }
 /* -----------------------Mejor comentario----------------------- */
-.comentario-mejor{
+.comentario-mejor {
 	color: var(--color-grey_dark);
 }
-.comentario-header{
+.comentario-header {
 	display: flex;
 	justify-content: space-between;
 }
@@ -357,7 +369,7 @@ h6 {
 	box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
 }
 .none {
-	display: none;
+	display: none !important;
 }
 .hidden {
 	visibility: hidden;
@@ -367,7 +379,11 @@ h6 {
 	text-align: center;
 	max-width: var(--max-width);
 }
-
+.ds-flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
 .section-margins {
 	padding: var(--margin-small-section) 0;
 }
@@ -386,11 +402,6 @@ h6 {
 .m-0 {
 	margin: 0;
 }
-.txt-allg-left{
-	text-align: left;
-}
-.txt-allgn-right
-{text-align: right;}
 .title-lines {
 	border-top: medium solid var(--color-first);
 	border-bottom: medium solid var(--color-first);
@@ -457,6 +468,7 @@ h6 {
 	z-index: 999;
 	display: none;
 }
+
 @media screen and (min-width: 768px) {
 	.max-width-content-medium {
 		max-width: var(--max-width-content);
@@ -495,6 +507,9 @@ h6 {
 	}
 	.section-margins > * {
 		margin: var(--margin-lg-article-vertical);
+	}
+	.section-margins > :first-child {
+		margin-top: 3rem;
 	}
 	.none-lg {
 		display: none;

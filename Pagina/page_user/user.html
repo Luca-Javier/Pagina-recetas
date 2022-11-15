@@ -10,16 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../CSS/receta.css">
+  <link rel="stylesheet" href="../CSS/user.css">
 </head>
 
 <body>
-
   <div class="conteiner">
 
     <section class="nav">
 
-      <h1><a class="page-title" href="../index.html">TuCoCina</a></h1>
+      <h1><a class="page-title" href="../page_index/index.html">TuCoCina</a></h1>
 
       <article class="menu-btn none-lg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -42,9 +41,7 @@
         <a href="#search" class="seccion-link-9">Empanadas</a>
         <a href="#search" class="seccion-link-10">Sandwiches</a>
         <a href="#search" class="seccion-link-11">Milanesas</a>
-        <a href="#logearse" class="user-lg" data-user>
-          svg
-        </a>
+        <a href="#logearse" class="user-lg" data-user>Logearse</a>
       </article>
 
       <article id="modal-login" class="modal">
@@ -67,7 +64,6 @@
         <form id="registrarse" class="modal-content">
           <div class="modal-inputs">
             <p class="modal-title"><b>Datos:</b></p>
-            <input type="text" placeholder="Alias" name="alias" required>
             <input type="text" placeholder="Usuario" name="usuario" required>
             <input type="text" placeholder="Contraseña" name="contrasenia" required>
             <input type="text" placeholder="Correo" name="correo" required>
@@ -87,74 +83,62 @@
 
     </section>
 
-    <div class="section-margins max-width-content-medium txt-allg-left">
+    <div class="section-margins max-width-content-medium">
 
-      <section>
-        <article class="options options-receta">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/></svg>
-        </article>
-        <article class="main-img-conteiner" data-main-img></article>
+      <section class="user-conteiner">
+        <div class="user-name">
+
+          <img src="/pagina-recetas/imagenes-locales/" alt="Foto de usuario">
+          <p>Nombre</p>
+        </div>
+        <img src="/pagina-recetas/assets/gear-solid.svg" alt="Opciones">
       </section>
 
-      <section>
-        <h1 data-title></h1>
-        <p data-descripcion></p>
-      </section>
+      <section class="recetas">
 
-      <section>
-        <h3 class="title-h1">Ingredientes</h3>
-        <ul data-ingredientes-list>
-        </ul>
-      </section>
-
-      <section>
-        <h3 class="title-h1">Pasos</h3>
-        <p><b data-pasos-num>Paso 1</b></p> <!-- Puedo poner paso y el numero con JS -->
-        <p data-pasos-descripcion></p>
-        <div class="pasos-imagenes" data-pasos-img></div>
-      </section>
-
-      <section class="rating txt-allg-right">
-        <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-        <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-        <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-        <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-        <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-      </section>
-
-      <section>
-        <h3 class="title-h1">Comentarios</h3>
-        <p class="comentario-mejor">Mejor comentario</p>
-
-        <article>
-          <div class="comentario-header">
-            <b data-comentario-nombre class="comentario-nombre">Valentina</b>
-            <div class="comentado-options options">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M120 256c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm160 0c0 30.9-25.1 56-56 56s-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56zm104 56c-30.9 0-56-25.1-56-56s25.1-56 56-56s56 25.1 56 56s-25.1 56-56 56z"/></svg>
-            </div>
+        <article class="recetas-btns">
+          <div class="ds-flex-center tus-favoritos-btn back-btn" style="border-right:none;">
+            <p>Tus favoritos</p>
+            <img src="/pagina-recetas/assets/bookmark-solid.svg" alt="Recetas favoritas">
           </div>
-          <div class="comentario-foto"></div>
-          <div class="comentario-comentado"></div>
+          <p class="ds-flex-center m-0 tus-recetas-btn">Tus recetas: 1</p>
+        </article>
+        <article class="ds-flex-center m-0 bord-thin receta-crear none" style="border-top:none;">
+          <p>Crear Receta</p>
         </article>
 
-        <article class="comentar-input">
-          <input type="text" placeholder="Comentar">
-        </article>
+        <article class="recetas-conteiner favoritas"></article>
 
-        <article>
-          <div class="comentario-nombre"></div>
-          <div class="comentado-options"></div> 
-          <div class="comentario-foto"></div>
-          <div class="comentario-comentado"></div>
-        </article>
-        
+        <article class="recetas-conteiner propias none"></article>
+
       </section>
-    </div>
 
+    </div>
   </div>
 
+  <script type="module">
+    import burguerMenu, { burguerLogin } from "../JS/burguerMenu.js";
+    import registrarUsuario, { logearUsuario } from "../JS/registrar_logearUsuario.js";
+    import checkUserLoged from "../JS/checkUserLoged.js";
+    import userInfo from "./JS-local/userInfo.js";
+    import recetaBtns from "./JS-local/recetaBtns.js";
+    import traerFavoritas, { traerPropias } from "./JS-local/traerRecetas.js";
 
-  <script src="receta.js" type="module"></script>
+    const d = document;
+
+    traerFavoritas();
+    traerPropias();
+    d.addEventListener("DOMContentLoaded", (e) => {
+      burguerMenu(".menu", ".menu-btn", ".menu-bg");
+      burguerLogin("[data-user]", "#modal-login");
+      registrarUsuario();
+      logearUsuario();
+      checkUserLoged();
+      userInfo();
+      recetaBtns();
+
+    });
+  </script>
 </body>
 
 </html>

@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="CSS/index.css">
+  <link rel="stylesheet" href="../CSS/index.css">
 </head>
 
 <body>
@@ -48,9 +48,7 @@
         <a href="#search" class="seccion-link-9">Empanadas</a>
         <a href="#search" class="seccion-link-10">Sandwiches</a>
         <a href="#search" class="seccion-link-11">Milanesas</a>
-        <a href="#logearse" class="user-lg" data-user>
-          svg
-        </a>
+        <a href="#logearse" class="user-lg" data-user>Logearse</a>
       </article>
 
       <article id="modal-login" class="modal">
@@ -73,7 +71,6 @@
         <form id="registrarse" class="modal-content">
           <div class="modal-inputs">
             <p class="modal-title"><b>Datos:</b></p>
-            <input type="text" placeholder="Alias" name="alias" required>
             <input type="text" placeholder="Usuario" name="usuario" required>
             <input type="text" placeholder="Contraseña" name="contrasenia" required>
             <input type="text" placeholder="Correo" name="correo" required>
@@ -115,72 +112,82 @@
 
       </section>
 
-      <section class="receta">
-        <input type="number" value="1" class="none">
-        <article class="receta-filter"></article>
+      <template>
+        <section class="receta" data-receta-img>
+          <input type="number" value="1" class="none">
+          <article class="receta-filter"></article>
 
-        <h3 class="title-h1 receta-title">Ensalada de huevo y rúcula</h3>
+          <h3 class="title-h1 receta-title" data-receta-title>Ensalada de huevo y rúcula</h3>
 
-        <article class="receta-btns">
-          <a href="#descripcion">Descripción</a>
-          <a href="#ingredientes">Ingredientes</a>
-          <a href="#receta">Receta</a>
-        </article>
-
-        <section id="descripcion">
-
-          <article class="receta-user">
-            <p style="font-size:32px;">0</p>
-            <p>userName</p>
+          <article class="receta-btns">
+            <a href="#descripcion">Descripción</a>
+            <a href="#ingredientes">Ingredientes</a>
+            <a href="#receta">Receta</a>
           </article>
 
-          <p class="receta-descripcion">Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati fugit
-            expedita iste tenetur dignissimos
-            reprehenderit at sunt maiores porro harum, voluptatibus optio qui vitae ducimus quisquam odio! Dolorem,
-            saepe dicta?
+          <section id="descripcion">
 
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor perferendis quisquam voluptatibus nulla
-            libero earum totam sequi magni, cum sint praesentium porro assumenda sapiente deserunt id architecto.
-            Debitis, consectetur accusantium?
+            <article class="receta-user">
+              <!-- <img data-receta-user-img src="http://localhost/pagina-recetas/imagenes-locales/" alt="Foto de usuario">
+              <p data-receta-user-name></p> -->
+              <div class="user-name">
 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium nesciunt, modi illum eius
-            porro, alias corporis rerum minima incidunt voluptatem assumenda reiciendis, delectus eligendi ullam
-            quibusdam excepturi consectetur necessitatibus!
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, minus magnam nesciunt officia vel dolore
-            aliquid asperiores quam reprehenderit nostrum, sapiente reiciendis veniam. Ea officia, explicabo unde
-            distinctio animi tempora!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptatibus modi vero sunt obcaecati,
-            quis vel voluptate, nostrum excepturi quos non repellat, aliquid nam aut minima dicta est culpa eligendi?
+                <img data-receta-user-img src="http://localhost/pagina-recetas/imagenes-locales/" alt="Foto de usuario">
+                <p data-receta-user-name>Luca Javier</p>
+              </div>
+              <!--  <p style="font-size:32px;">0</p>
+            <p data-receta-user-name>userName</p> -->
+            </article>
 
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ex autem a dolor vero necessitatibus
-            accusantium deserunt iusto veritatis id. Obcaecati libero voluptate eaque vero in rerum fugiat velit
-            nesciunt. dddddd
+            <p class="receta-descripcion" data-receta-desc>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Obcaecati fugit
+              expedita iste tenetur dignissimos
+              reprehenderit at sunt maiores porro harum, voluptatibus optio qui vitae ducimus quisquam odio! Dolorem,
+              saepe dicta?
 
-          </p>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor perferendis quisquam voluptatibus nulla
+              libero earum totam sequi magni, cum sint praesentium porro assumenda sapiente deserunt id architecto.
+              Debitis, consectetur accusantium?
 
-          <article class="rating">
-            <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
-            <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
-            <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
-            <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
-            <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
-          </article>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente praesentium nesciunt, modi illum eius
+              porro, alias corporis rerum minima incidunt voluptatem assumenda reiciendis, delectus eligendi ullam
+              quibusdam excepturi consectetur necessitatibus!
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit, minus magnam nesciunt officia vel dolore
+              aliquid asperiores quam reprehenderit nostrum, sapiente reiciendis veniam. Ea officia, explicabo unde
+              distinctio animi tempora!
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis voluptatibus modi vero sunt obcaecati,
+              quis vel voluptate, nostrum excepturi quos non repellat, aliquid nam aut minima dicta est culpa eligendi?
+
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ex autem a dolor vero necessitatibus
+              accusantium deserunt iusto veritatis id. Obcaecati libero voluptate eaque vero in rerum fugiat velit
+              nesciunt. dddddd
+
+            </p>
+
+            <article class="rating">
+              <input type="radio" name="rating" value="5" id="5"><label for="5">☆</label>
+              <input type="radio" name="rating" value="4" id="4"><label for="4">☆</label>
+              <input type="radio" name="rating" value="3" id="3"><label for="3">☆</label>
+              <input type="radio" name="rating" value="2" id="2"><label for="2">☆</label>
+              <input type="radio" name="rating" value="1" id="1"><label for="1">☆</label>
+            </article>
+
+          </section>
+
+          <section id="ingredientes">
+            <ul data-recetas-ingredientes>
+              <li>1/2 KG de azucar</li>
+              <li>3 huevos</li>
+              <li>1 muslo de pollo</li>
+              <li>Sala de warani</li>
+              <li>Especias de oregano</li>
+              <li>Anca de rana</li>
+            </ul>
+
+          </section>
 
         </section>
-
-        <section id="ingredientes">
-          <ul>
-            <li>1/2 KG de azucar</li>
-            <li>3 huevos</li>
-            <li>1 muslo de pollo</li>
-            <li>Sala de warani</li>
-            <li>Especias de oregano</li>
-            <li>Anca de rana</li>
-          </ul>
-
-        </section>
-
-      </section>
+      </template>
 
     </div>
 
@@ -213,7 +220,25 @@
     </article>
   </section>
 
-  <script src="index_DOM.js" type="module"></script>
+  <script type="module">
+    import burguerMenu, { burguerLogin } from "../JS/burguerMenu.js";
+    import registrarUsuario, { logearUsuario } from "../JS/registrar_logearUsuario.js"
+    import checkUserLoged from "../JS/checkUserLoged.js"
+    import recetaBtns from "./JS-local/recetaBtns.js";
+    import traerAll from "./JS-local/traerRecetas.js";
+
+    const d = document;
+
+    traerAll();
+    d.addEventListener("DOMContentLoaded", (e) => {
+      burguerMenu(".menu", ".menu-btn", ".menu-bg");
+      burguerLogin("[data-user]", "#modal-login");
+      recetaBtns();
+      registrarUsuario();
+      logearUsuario();
+      checkUserLoged();
+    });
+  </script>
 </body>
 
 </html>
