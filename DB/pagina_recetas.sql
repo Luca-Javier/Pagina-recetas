@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-11-2022 a las 00:59:18
+-- Tiempo de generación: 16-11-2022 a las 13:21:58
 -- Versión del servidor: 10.4.25-MariaDB
 -- Versión de PHP: 8.1.10
 
@@ -27,6 +27,22 @@ DELIMITER $$
 --
 -- Procedimientos
 --
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregarPaso` (`@paso` VARCHAR(255))   BEGIN
+    INSERT INTO pasos_por_receta VALUES(
+    (SELECT id_receta from recetarios  order by id_receta DESC LIMIT 1),
+        `@paso`,null
+    );
+    
+    SELECT "bien" AS "rta";
+    END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `agregarReceta` (IN `@titulo` VARCHAR(50), IN `@img` VARCHAR(50), IN `@desc` VARCHAR(255), IN `@ingredientes` VARCHAR(255), IN `@idUser` INT(16))   BEGIN
+   	INSERT INTO recetarios (nombre_receta,imagen,descripcion,ingredientes,id_usuario,id_estado)
+    VALUES (`@titulo`,`@img`,`@desc`,`@ingredientes`,`@idUser`,1);
+    
+    SELECT "bien" AS "rta";
+    END$$
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `logearUsuario` (IN `@nombre` VARCHAR(50), IN `@contrasenia` VARCHAR(50))   BEGIN
     SELECT id_usuario AS "id", nombre AS "name", foto AS "img" from usuarios WHERE nombre = `@nombre` and constraseña = `@contrasenia` and id_estado = 1;
     SELECT "bien" AS "rta";
@@ -36,6 +52,29 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `registrarUsuario` (IN `@nombre` VAR
     INSERT INTO usuarios (nombre,correo,constraseña,id_estado)VALUES(`@nombre`,`@correo`,`@contrasenia`,1);
 SELECT "bien" AS "rta";
     
+    END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traerLaReceta` (IN `@idReceta` INT(16))   BEGIN
+    SELECT r.nombre_receta AS "name", r.imagen AS "img", r.descripcion AS "desc", r.ingredientes AS "ingredientes", r.id_usuario AS "idUser"
+    FROM recetarios r
+    WHERE r.id_receta = `@idReceta` AND r.id_estado = 1;
+    
+    SELECT "bien" AS "rta";
+    END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traerPasos` (`@idReceta` INT(16))   BEGIN
+    SELECT descripcion from pasos_por_receta
+    WHERE id_receta =  `@idReceta`;
+    
+    SELECT "bien" AS "rta";
+    END$$
+
+CREATE DEFINER=`root`@`localhost` PROCEDURE `traerRecetas` ()   BEGIN
+    SELECT r.id_receta AS "id", r.nombre_receta AS "name", r.imagen AS "img", r.descripcion AS "desc", r.ingredientes AS "ingredientes", u.nombre AS "nameUser", u.foto AS "imgUser" from recetarios r
+    INNER JOIN usuarios u ON r.id_usuario = u.id_usuario and u.id_estado = 1
+    WHERE r.id_estado = 1;
+    
+    SELECT "bien" AS "rta";
     END$$
 
 DELIMITER ;
@@ -95,9 +134,17 @@ INSERT INTO `estado` (`id_estado`, `estado`) VALUES
 
 CREATE TABLE `pasos_por_receta` (
   `id_receta` int(16) NOT NULL,
-  `descripcion` varchar(30) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
   `imagen` blob DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `pasos_por_receta`
+--
+
+INSERT INTO `pasos_por_receta` (`id_receta`, `descripcion`, `imagen`) VALUES
+(13, 'mientras cocinamos los fideos vamos calentando l a salada', NULL),
+(13, 'condimentamos todo y comemos, joya', NULL);
 
 -- --------------------------------------------------------
 
@@ -108,15 +155,21 @@ CREATE TABLE `pasos_por_receta` (
 CREATE TABLE `recetarios` (
   `id_receta` int(16) NOT NULL,
   `nombre_receta` varchar(50) NOT NULL,
-  `imagen` blob NOT NULL,
+  `imagen` varchar(50) NOT NULL,
   `tags` varchar(50) DEFAULT NULL,
-  `descripcion` varchar(50) NOT NULL,
+  `descripcion` varchar(255) NOT NULL,
   `ingredientes` varchar(255) NOT NULL,
   `fecha_creacion` timestamp(6) NOT NULL DEFAULT current_timestamp(6),
-  `id_calificacion` int(16) NOT NULL,
   `id_usuario` int(16) NOT NULL,
   `id_estado` int(16) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `recetarios`
+--
+
+INSERT INTO `recetarios` (`id_receta`, `nombre_receta`, `imagen`, `tags`, `descripcion`, `ingredientes`, `fecha_creacion`, `id_usuario`, `id_estado`) VALUES
+(13, 'Fideos con salsa de queso', '63717399db1d8fideos.jpg', NULL, 'receta riquisima, recomendada', 'qeuso@fideos', '2022-11-13 22:45:45.915931', 3, 1);
 
 -- --------------------------------------------------------
 
@@ -193,7 +246,6 @@ ALTER TABLE `pasos_por_receta`
 --
 ALTER TABLE `recetarios`
   ADD PRIMARY KEY (`id_receta`),
-  ADD KEY `fk_id_calificacion_recetarios` (`id_calificacion`),
   ADD KEY `fk_id_usuarios_recetarios` (`id_usuario`),
   ADD KEY `fk_id_estado_recetarios` (`id_estado`);
 
@@ -225,7 +277,7 @@ ALTER TABLE `estado`
 -- AUTO_INCREMENT de la tabla `recetarios`
 --
 ALTER TABLE `recetarios`
-  MODIFY `id_receta` int(16) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_receta` int(16) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
