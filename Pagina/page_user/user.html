@@ -94,6 +94,12 @@
         <img src="/pagina-recetas/assets/gear-solid.svg" alt="Opciones">
       </section>
 
+      <section class="user-btns">
+        <p>Modificar datos</p>
+        <p id="btn-salir">Salir</p>
+        <p>Eliminar cuenta</p>
+      </section>
+
       <section class="recetas">
 
         <article class="recetas-btns">
@@ -123,6 +129,7 @@
     import userInfo from "./JS-local/userInfo.js";
     import recetaBtns from "./JS-local/recetaBtns.js";
     import traerFavoritas, { traerPropias } from "./JS-local/traerRecetas.js";
+    import userBtns from "./JS-local/userBtns.js";
 
     const d = document;
 
@@ -136,6 +143,7 @@
       checkUserLoged();
       userInfo();
       recetaBtns();
+      userBtns()
 
     });
   </script>
