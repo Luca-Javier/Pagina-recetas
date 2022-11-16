@@ -27,5 +27,11 @@ export default function recetaBtns() {
 				$receta.querySelector(`a[href="${$otherBtnSelector}"]`).classList.remove("isActive");
 			}
 		}
+		if (e.target.matches(`[href^="../page_receta"]`)) {
+			localStorage.setItem(
+				"id_receta",
+				e.target.parentNode.parentNode.querySelector("[data-receta-id]").value
+			);
+		}
 	});
 }

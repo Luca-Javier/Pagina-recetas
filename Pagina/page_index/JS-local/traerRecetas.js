@@ -17,6 +17,7 @@ export default function traerAll() {
 			$template.querySelector("[data-receta-user-img]").src += el.imgUser;
 			$template.querySelector("[data-receta-user-name]").textContent = el.nameUser;
 			$template.querySelector("[data-receta-desc]").textContent = el.desc;
+			$template.querySelector("[data-receta-id]").setAttribute("value", el.id);
 			el.ingredientes.split("@").forEach((ing) => {
 				$template
 					.querySelector("[data-recetas-ingredientes]")
