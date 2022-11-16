@@ -13,7 +13,8 @@ export default function registrarUsuario() {
 				json = await response.json();
 
 			if (json[0].rta === "bien") {
-				d.querySelector("#logearse [name='usuario']").value = $formRegistrar.usuario.value;
+				d.querySelector("#logearse [name='usuario']").value =
+					$formRegistrar.usuario.value;
 				location.hash = "logearse";
 			} else alert("No te has podido registrar");
 		}
@@ -22,6 +23,7 @@ export default function registrarUsuario() {
 
 export function logearUsuario() {
 	d.addEventListener("submit", async (e) => {
+		e.preventDefault();
 		if (e.target === $formLogear) {
 			let response = await fetch(`../PHP/logearUsuario.php`, {
 					method: "POST",
@@ -33,6 +35,7 @@ export function logearUsuario() {
 				localStorage.setItem("id", el.id);
 				localStorage.setItem("name", el.name);
 				localStorage.setItem("img", el.img);
+        location.reload()
 			});
 		}
 	});

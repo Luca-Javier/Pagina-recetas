@@ -395,6 +395,9 @@ h6 {
 	display: grid;
 	opacity: 1;
 }
+.user-conteiner > img{
+  
+}
 /* -----------------------Mejor comentario----------------------- */
 .comentario-mejor {
 	color: var(--color-grey_dark);
